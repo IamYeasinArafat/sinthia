@@ -1,0 +1,7 @@
+[project]
+name = "sinthia"
+version = "0.1.0"
+description = "This is a Ai which helps you prepare for English Language Proficiency tests like IELTS, TOEFL, and Duolingo "
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
