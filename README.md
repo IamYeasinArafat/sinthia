@@ -1,3 +1,5 @@
+# Sinthia AI
+
 **Sinthia AI** is a lightweight AI assistant designed to help users prepare for English proficiency tests like **IELTS** and **TOEFL**, with a strong focus on **Speaking Test evaluation**.
 
 ---
