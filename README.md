@@ -47,6 +47,7 @@ Note: I also have a plan to have a conversational mode for the agent where you c
     - LLaMA 3.2 (1B & 3B)
     - Gemma 3 (1B-it, 4B-it)
     - Phi-4 Mini (for deep reasoning)
+    - SmolLM3
     - Framework: **LangGraph**
 - 🗣️ **TTS**: Kyutai TTS
 - 📄 **Output**: Text + optional PDF report with visualizations
