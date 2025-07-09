@@ -49,7 +49,7 @@ Note: I also have a plan to have a conversational mode for the agent where you c
     - Phi-4 Mini (for deep reasoning)
     - SmolLM3
     - Framework: **LangGraph**
-- 🗣️ **TTS**: Kyutai TTS
+- 🗣️ **TTS**: Kyutai TTS, OuteTTS
 - 📄 **Output**: Text + optional PDF report with visualizations
 - **API**: FastAPI to expose a REST API to build a frontend
 
