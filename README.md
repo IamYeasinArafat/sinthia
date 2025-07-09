@@ -50,6 +50,7 @@ Note: I also have a plan to have a conversational mode for the agent where you c
     - Framework: **LangGraph**
 - 🗣️ **TTS**: Kyutai TTS
 - 📄 **Output**: Text + optional PDF report with visualizations
+- **API**: FastAPI to expose a REST API to build a frontend
 
 ---
 
