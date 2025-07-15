@@ -11,3 +11,9 @@ wheels/
 
 #env
 .env.*
+
+# logs
+*.log
+*.log.*
+*.jsonl
+*.jsonl.*

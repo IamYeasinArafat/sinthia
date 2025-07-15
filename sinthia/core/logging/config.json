@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "disable_existing_loggers": true,
+
+  "filters": {
+    "no_errors": {
+      "()": "mylogger.NonErrorFilter"
+    }
+  },
+
+  "formatters": {
+    "simple": {
+      "format": "[%(asctime)s - %(name)s - %(levelname)s] %(message)s - %(pathname)s:%(lineno)d",
+      "datefmt": "%Y-%m-%d %H:%M:%S"
+    },
+    "json": {
+      "()": "mylogger.MyJSONFormatter",
+      "fmt_keys": {
+        "level": "levelname",
+        "message": "message",
+        "timestamp": "timestamp",
+        "logger": "name",
+        "module": "module",
+        "function": "funcName",
+        "line": "lineno",
+        "thread": "threadName"
+      }
+    }
+  },
+
+  "handlers": {
+    "stdout": {
+      "class": "logging.StreamHandler",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout",
+      "filters": ["no_errors"],
+      "level": "INFO"
+    },
+    "stderr": {
+      "class": "logging.StreamHandler",
+      "formatter": "simple",
+      "stream": "ext://sys.stderr",
+      "level": "WARNING"
+    },
+
+    "file_transcription": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "json",
+      "filename": "src/logs/transcription/log.jsonl",
+      "maxBytes": 2097152,
+      "backupCount": 5
+    },
+    "file_tts": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "json",
+      "filename": "src/logs/tts/log.jsonl",
+      "maxBytes": 2097152,
+      "backupCount": 5
+    },
+    "file_restapi": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "json",
+      "filename": "src/logs/restapi/log.jsonl",
+      "maxBytes": 2097152,
+      "backupCount": 5
+    },
+    "file_report": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "json",
+      "filename": "src/logs/report/log.jsonl",
+      "maxBytes": 2097152,
+      "backupCount": 5
+    }
+  },
+
+  "loggers": {
+    "transcription": {
+      "level": "DEBUG",
+      "handlers": ["file_transcription", "stderr"],
+      "propagate": false
+    },
+    "tts": {
+      "level": "DEBUG",
+      "handlers": ["file_tts", "stderr"],
+      "propagate": false
+    },
+    "restAPI": {
+      "level": "DEBUG",
+      "handlers": ["file_restapi", "stderr"],
+      "propagate": false
+    },
+    "report": {
+      "level": "DEBUG",
+      "handlers": ["file_report", "stderr"],
+      "propagate": false
+    }
+  },
+
+  "root": {
+    "level": "INFO",
+    "handlers": ["stdout", "stderr"]
+  }
+}
