@@ -4,7 +4,7 @@
 
   "filters": {
     "no_errors": {
-      "()": "mylogger.NonErrorFilter"
+      "()": "sinthia.core.logging.myLogger.NonErrorFilter"
     }
   },
 
@@ -14,7 +14,7 @@
       "datefmt": "%Y-%m-%d %H:%M:%S"
     },
     "json": {
-      "()": "mylogger.MyJSONFormatter",
+      "()": "sinthia.core.logging.myLogger.MyJSONFormatter",
       "fmt_keys": {
         "level": "levelname",
         "message": "message",
@@ -47,7 +47,7 @@
       "class": "logging.handlers.RotatingFileHandler",
       "level": "DEBUG",
       "formatter": "json",
-      "filename": "src/logs/transcription/log.jsonl",
+      "filename": "sinthia/logs/transcription/log.jsonl",
       "maxBytes": 2097152,
       "backupCount": 5
     },
@@ -55,7 +55,7 @@
       "class": "logging.handlers.RotatingFileHandler",
       "level": "DEBUG",
       "formatter": "json",
-      "filename": "src/logs/tts/log.jsonl",
+      "filename": "sinthia/logs/tts/log.jsonl",
       "maxBytes": 2097152,
       "backupCount": 5
     },
@@ -63,7 +63,7 @@
       "class": "logging.handlers.RotatingFileHandler",
       "level": "DEBUG",
       "formatter": "json",
-      "filename": "src/logs/restapi/log.jsonl",
+      "filename": "sinthia/logs/restapi/log.jsonl",
       "maxBytes": 2097152,
       "backupCount": 5
     },
@@ -71,37 +71,42 @@
       "class": "logging.handlers.RotatingFileHandler",
       "level": "DEBUG",
       "formatter": "json",
-      "filename": "src/logs/report/log.jsonl",
+      "filename": "sinthia/logs/report/log.jsonl",
       "maxBytes": 2097152,
       "backupCount": 5
     }
   },
 
   "loggers": {
-    "transcription": {
+    "sinthia": {
       "level": "DEBUG",
-      "handlers": ["file_transcription", "stderr"],
+      "handlers": ["stdout", "stderr"],
       "propagate": false
     },
-    "tts": {
+    "sinthia.transcription": {
       "level": "DEBUG",
-      "handlers": ["file_tts", "stderr"],
-      "propagate": false
+      "handlers": ["file_transcription"],
+      "propagate": true
     },
-    "restAPI": {
+    "sinthia.tts": {
       "level": "DEBUG",
-      "handlers": ["file_restapi", "stderr"],
-      "propagate": false
+      "handlers": ["file_tts"],
+      "propagate": true
     },
-    "report": {
+    "sinthia.restAPI": {
       "level": "DEBUG",
-      "handlers": ["file_report", "stderr"],
-      "propagate": false
+      "handlers": ["file_restapi"],
+      "propagate": true
+    },
+    "sinthia.report": {
+      "level": "DEBUG",
+      "handlers": ["file_report"],
+      "propagate": true
     }
   },
 
   "root": {
-    "level": "INFO",
-    "handlers": ["stdout", "stderr"]
+    "level": "WARNING",
+    "handlers": ["stderr"]
   }
 }
